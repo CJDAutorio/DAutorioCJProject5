@@ -1,0 +1,38 @@
+<%- include('../partials/header.ejs')%>
+<main>
+    <div class="event">
+        <h3><%=event.title%></h3>
+        <%if (user && !(user == event.hostName._id)) {%>
+            <div class="rsvp">
+                <p>Going?</p>
+                <form action='/events/<%=event.id%>/rsvp' method='POST'>
+                    <button type="submit" name="rsvpStatus" value="YES" id="rsvp-yes" class="rsvp-button">YES</button>
+                    <button type="submit" name="rsvpStatus" value="NO" id="rsvp-no" class="rsvp-button">NO</button>
+                    <button type="submit" name="rsvpStatus" value="MAYBE" id="rsvp-maybe" class="rsvp-button">MAYBE</button>
+                </form>
+            </div>
+        <%}%>
+        <%if (user == event.hostName._id) {%>
+        <div class="event-buttons">
+            <form>
+                <button class="event-button" id="edit" type="submit" formmethod="GET" formaction="/events/<%=event.id%>/edit"><img src="../assets/icons/pencil.png" /></button>
+                <button class="event-button" id="delete" type="submit" formmethod="POST" formaction="/events/<%=event.id%>?_method=DELETE"><img src="../assets/icons/remove.png" /></button>
+            </form>
+        </div>
+        <%}%>
+        <div class="event-display">
+            <div class="event-image-frame">
+                <img class="event-image" src=<%=event.image%>>
+            </div>
+            <div class="event-details">
+                <p><strong>Host: </strong><%= event.hostName.firstName + ' ' + event.hostName.lastName%></p>
+                <p><strong>Start Date: </strong><%=event.startDate%></p>
+                <p><strong>End Date: </strong><%=event.endDate%></p>
+                <p><strong>Location: </strong><%=event.location%></p>
+                <p><strong>Details: </strong><%=event.details%></p>
+                <p><strong>Number of RSVPs: </strong><%=rsvpCount%></p>
+            </div>
+        </div>
+    </div>
+</main>
+<%- include('../partials/footer.ejs')%>

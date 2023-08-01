@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Niner Pickup</title>
+
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+    <div class="header-top">
+        <div class="header-logo">
+            <a href="/"><img src="/assets/branding/logo_long.png"></a>
+        </div>
+        <div class="user-nav">
+            <nav>
+                <%if (!user) {%>
+                    <a href='/users/new'>Sign Up</a>
+                    <a href='/users/login'>Login</a>
+                <%} else {%>
+                    <a href="/events/new">New Event</a>
+                    <a href='/users/profile'><%=firstName + '\'s Profile' %></a>
+                    <a href='/users/logout'>Logout</a>
+                <%}%>
+            </nav>
+        </div>
+    </div>
+    <div class="header-bottom">
+        <nav>
+            <a href="/events">Events</a>
+        </nav>
+    </div>
+</header>
+
+<% if(errorMessages.length > 0) {%>
+    <% errorMessages.forEach(message=>{%>
+        <div class='error'>
+            <%=message%>
+        </div>
+    <%});%>
+<%}%>
+
+<% if(successMessages.length > 0) {%>
+    <% successMessages.forEach(message=>{%>
+        <div class='success'>
+            <%=message%>
+        </div>
+    <%});%>
+<%}%>

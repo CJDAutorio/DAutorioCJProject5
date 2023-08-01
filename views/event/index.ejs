@@ -1,0 +1,41 @@
+<%- include('../partials/header.ejs') %>
+<main>
+<div class="content">
+    <% if (events.length) { %>
+        <h1>Events</h1>
+        <% if (sports.length) { %>
+            <h3>Sports</h3>
+            <% sports.forEach(event => { %>
+                <a href="/events/<%=event.id%>"><%= event.title %></a><br />
+            <% }) %>
+        <% } %>
+        <% if (videoGame.length) { %>
+            <h3>Video Games</h3>
+            <% videoGame.forEach(event => { %>
+                <a href="/events/<%=event.id%>"><%= event.title %></a><br />
+            <% }) %>
+        <% } %>
+        <% if (board.length) { %>
+            <h3>Board Games</h3>
+            <% board.forEach(event => { %>
+                <a href="/events/<%=event.id%>"><%= event.title %></a><br />
+            <% }) %>
+        <% } %>
+        <% if (card.length) { %>
+            <h3>Card Games</h3>
+            <% card.forEach(event => { %>
+                <a href="/events/<%=event.id%>"><%= event.title %></a><br />
+            <% }) %>
+        <% } %>
+        <% if (other.length) { %>
+            <h3>Other</h3>
+            <% other.forEach(event => { %>
+                <a href="/events/<%=event.id%>"><%= event.title %></a><br />
+            <% }) %>
+        <% } %>
+    <% } else { %>
+        <h1>There are no events to display.</h1>
+    <% } %>
+</div>
+<div class="newEvent-container">
+<%- include('../partials/footer.ejs') %>

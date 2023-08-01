@@ -1,0 +1,363 @@
+@use "sass:color";
+@import "variables";
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    font-family: $primary-font;
+    font-weight: $font-reg;
+    overflow-x: hidden;
+}
+
+.header-top {
+    background-color: $primary-color;
+    padding-left: clamp(5px, 5%, 150px);
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-right: clamp(5px, 5%, 150px);
+    display: grid;
+    column-gap: 5px;
+}
+
+.header-logo {
+    grid-row: 1;
+    grid-column: 1;
+
+    img {
+        height: 100px;
+        width: auto;
+    }
+}
+
+.user-nav {
+    grid-row: 1;
+    grid-column: 2;
+
+    nav {
+        float: right;
+        padding-top: 40px;
+    }
+
+    a {
+        text-decoration: none;
+        font-weight: 400;
+        font-size: $font-size-body;
+        text-align: center;
+        line-height: 1px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        padding-left: 5px;
+        padding-right: 5px;
+        color: #ffffff;
+        background-color: $primary-color;
+        grid-row: 1;
+        transition-duration: 0.2s;
+        white-space: nowrap;
+    }
+
+    a:hover {
+        background-color: color.scale($primary-color, $lightness: 5%, $saturation: -10%);
+        text-decoration: underline;
+    }
+}
+
+.header-bottom {
+    background-color: $primary-color;
+    padding-left: clamp(5px, 5%, 150px);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: clamp(5px, 5%, 150px);
+    border-top: thick solid $secondary-color;
+
+    a {
+        text-decoration: none;
+        font-weight: 400;
+        font-size: $font-size-body;
+        text-align: center;
+        line-height: 1px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        padding-left: 5px;
+        padding-right: 5px;
+        color: #ffffff;
+        background-color: $primary-color;
+        grid-row: 1;
+        transition-duration: 0.2s;
+        white-space: nowrap;
+    }
+
+    a:hover {
+        background-color: color.scale($primary-color, $lightness: 5%, $saturation: -10%);
+        text-decoration: underline;
+    }
+}
+
+main {
+    margin-top: 50px;
+    margin-bottom: 10px;
+    margin-left: clamp(5px, 5%, 500px);
+    margin-right: clamp(5px, 5%, 500px);
+    padding-bottom: 4rem;
+}
+
+footer {
+    background-color: $primary-color;
+    color: #ffffff;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    display: grid;
+    column-gap: 5px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
+    .footer-left {
+        grid-row: 1;
+        grid-column: 1;
+        padding-left: clamp(5px, 5%, 150px);
+        padding-right: clamp(5px, 5%, 150px);
+
+        p {
+            display: inline-block;
+            line-height: 1px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        a {
+            text-decoration: none;
+            font-weight: 400;
+            font-size: $font-size-body;
+            text-align: center;
+            line-height: 1px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            padding-left: 5px;
+            padding-right: 5px;
+            color: #ffffff;
+            background-color: $primary-color;
+            transition-duration: 0.2s;
+            white-space: nowrap;
+        }
+
+        a:hover {
+            background-color: color.scale($primary-color, $lightness: 5%, $saturation: -10%);
+            text-decoration: underline;
+        }
+    }
+
+    .footer-right {
+        grid-row: 1;
+        grid-column: 2;
+        padding-left: clamp(5px, 5%, 150px);
+        padding-right: clamp(5px, 5%, 150px);
+
+        nav {
+            float: right;
+            text-align: center;
+
+            a {
+                padding-right: 10px;
+            }
+        }
+    }
+}
+
+.section {
+    a {
+        text-decoration: none;
+        color: black;
+        padding-bottom: 5px;
+        padding-left: 20px;
+        line-height: 150%;
+    }
+
+    h3 {
+        line-height: 75%;
+    }
+
+    padding-bottom: 15px;
+}
+
+.event {
+    h3 {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+    }
+
+    .rsvp {
+        display: flex;
+        align-items: center;
+        column-gap: 1rem;
+    }
+
+    .rsvp-button {
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        border: none;
+        font-weight: bold;
+        font-size: 0.85rem;
+        cursor: pointer;
+        margin: 0rem 0.25rem;
+    }
+
+    #rsvp-yes {
+        background-color: #349e16;
+        color: #fff;
+    }
+
+    #rsvp-no {
+        background-color: #9e1616;
+        color: #fff;
+    }
+
+    #rsvp-maybe {
+        background-color: #16519e;
+        color: #fff;
+    }
+
+    .event-buttons {
+        padding-bottom: 1rem;
+
+        button {
+            background: none;
+            border: none;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            cursor: pointer;
+        }
+    }
+    .event-display {
+        display: grid;
+        width: 100%;
+        column-gap: 20px;
+        grid-template-columns: 30% 1fr;
+        padding-top: 1rem;
+
+        .event-image-frame {
+            grid-row: 1;
+            grid-column: 1;
+            width: 100%;
+            //min-width: 200px;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+
+            img {
+                margin: auto;
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .event-details {
+            grid-row: 1;
+            grid-column: 2;
+        }
+    }
+}
+
+.newEvent-container form {
+    display: grid;
+    grid-template-columns: 20% auto;
+    grid-template-rows: 2rem 2rem 6rem 2rem 2rem 2rem;
+    column-gap: 10px;
+    align-items: center;
+    row-gap: 10px;
+
+    #submit {
+        grid-column: 2;
+        background-color: $primary-color;
+        font-weight: $font-reg;
+        color: white;
+        padding: 10px;
+    }
+
+    input,
+    select,
+    textarea {
+        background-color: rgb(227, 227, 227);
+        border: none;
+        padding: 5px;
+        border-radius: 5px;
+        font-family: $primary-font;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 4rem;
+    a {
+        margin-left: 2rem;
+    }
+}
+
+.register-container form {
+    display: grid;
+    grid-template-columns: 20% auto;
+    grid-template-rows: repeat(7, 2rem);
+    column-gap: 10px;
+    align-items: center;
+    row-gap: 10px;
+
+    #submit {
+        grid-column: 2;
+        background-color: $primary-color;
+        font-weight: $font-reg;
+        color: white;
+        padding: 10px;
+    }
+
+    input,
+    select,
+    textarea {
+        background-color: rgb(227, 227, 227);
+        border: none;
+        padding: 5px;
+        border-radius: 5px;
+        font-family: $primary-font;
+    }
+}
+
+.success {
+    background: rgb(50, 113, 53);
+    color: #fff;
+    width: 70%;
+    margin: 0 auto 1rem auto;
+    text-align: center;
+    padding: 0.5rem 0;
+  
+  }
+  
+.error {
+    background: rgb(188, 64, 58);
+    color: #fff;
+    width: 70%;
+    margin: 0 auto 1rem auto;
+    text-align: center;
+    padding: 0.5rem 0;
+}
+
+.profile-list {
+    display: grid;
+    grid-template-columns: auto 7rem;
+    width: 40%;
+    align-items: center;
+    row-gap: 1rem;
+
+    .event-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+}
